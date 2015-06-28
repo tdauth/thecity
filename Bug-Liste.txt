@@ -1,0 +1,20 @@
+- Gang-Zonen werden nicht angezeigt
+//- Nach dem Verlassen des DMS kommt load Weapons aber die Waffen werden nicht entfernt, genauso wenig wie die Rüstung, obwohl davor Load States kommt
+- Nach dem Verlassen des Servers, stürtzt bei einem Reconnect das Spiel ab
+//- Job-Preise ändern
+- Gang-Einladung testen
+- Umlaute werden in neuen Nachrichten und Menüs nicht angezeigt, eventuell vorerst Funktion schreiben, die diese durch "ae", "oe", "ue" und "ss" ersetzt
+- Skins durchchecken und für Berufe eintragen
+- Neuen Beruf für die Story-Charaktere machen
+- Nachricht anzeigen lassen, wenn man mit dem Fahrzeug eine Mission machen kann, am besten über Client oder per Game Message, wegen der Geschwindigkeitsanzeige
+//- Bei Taximission startet man im Wasser
+//- Für Professions Add-Funktion schreiben
+- Für Shop-Typen Add-Funktion schreiben
+- Für Waffen- und Fahrzeugtypen keine Add-Funktion schreiben!
+//- Bei "Mission fehlgeschlagen" den Punkt wegmachen und die dicke Schrift benutzen
+- Beim Wiederbeleben wird die 1 beim Timer nicht angezeigt
+- Im Haupt-Menü Sektion für Hilfe einbaun und in Kategorien unterteilen:
+	- Allgemein
+	- Befehle
+	- 
+	
