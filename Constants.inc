@@ -114,7 +114,7 @@
 #define MESSAGE_TYPE_EXPERIENCE                     5
 #define MESSAGE_TYPE_TIMER                          6
 //Menu Types
-#define MAX_MENU_TYPES                              17
+#define MAX_MENU_TYPES                              18
 #define MENU_TYPE_MAIN_MENU                    		0
 #define MENU_TYPE_ACCOUNT_MENU                      1
 #define MENU_TYPE_ACCOUNT_PLAYER_MENU               2
@@ -122,16 +122,17 @@
 #define MENU_TYPE_TOWN_SELECTION                    4
 #define MENU_TYPE_HOUSES                            5
 #define MENU_TYPE_HOUSE_SETTINGS                    6
-#define MENU_TYPE_GANG_CREATION                  	7
-#define MENU_TYPE_GANG                              8
-#define MENU_TYPE_GANG_HALL_SELECTION               9
-#define MENU_TYPE_PROFESSION_SELECTION              10
-#define MENU_TYPE_PROFESSION_START                	11
-#define MENU_TYPE_SHOP                              12
-#define MENU_TYPE_HOUSE                             13
-#define MENU_TYPE_RACE                              14
-#define MENU_TYPE_DEATH_MATCH                   	15
-#define MENU_TYPE_GANG_INVITATION                   16
+#define MENU_TYPE_HOUSE_SELLING                     7
+#define MENU_TYPE_GANG_CREATION                   	8
+#define MENU_TYPE_GANG                              9
+#define MENU_TYPE_GANG_HALL_SELECTION               10
+#define MENU_TYPE_PROFESSION_SELECTION              11
+#define MENU_TYPE_PROFESSION_START                	12
+#define MENU_TYPE_SHOP                              13
+#define MENU_TYPE_HOUSE                             14
+#define MENU_TYPE_RACE                              15
+#define MENU_TYPE_DEATH_MATCH                   	16
+#define MENU_TYPE_GANG_INVITATION                   17
 //-- Mission --
 #define MAX_MISSIONS                                100
 #define MAX_MISSION_NAME                            22

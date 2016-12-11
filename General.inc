@@ -10,12 +10,6 @@
 //-- General Including --
 #include <a_samp> //Include dieser Datei muss vor allem anderen stattfinden - Sonst kommen unerklrärliche Kompilierungsfehler.
 //Plugins
-//#define a_irc_used
-/*
-#if defined a_irc_used
-	#include <a_irc>
-#endif
-*/
 
 //-- Variables --
 //Path Constants
@@ -107,13 +101,6 @@ forward OnVehicleMod(VehicleId, ComponentId);
 forward OnVehiclePaintjob(VehicleId, PaintjobId);
 forward OnVehicleRespray(VehicleId, Colour1, Colour2);
 */
-//IRC Plugin Events
-//#if defined a_irc_used
-//forward ircOnConnect(Connection);
-//forward ircOnUserSay(Connection, Channel[], User[], Message[]);
-//forward ircOnUserPart(Connection, Channel[], User[]);
-//forward ircOnUserJoin(Connection, Channel[], User[]);
-//#endif
 //Account Functions
 forward AccountExists(Name[]);
 forward AccountPlayerExists(AccountId, Name[MAX_ACCOUNT_PLAYER_NAME]);
@@ -249,6 +236,7 @@ forward CreateHouseMenu(PlayerId, HouseId);
 forward PlayerEntersHouseCheckpoint(PlayerId, HouseId);
 forward CreateHousesMenu(PlayerId);
 forward CreateHouseSettingsMenu(PlayerId, House);
+forward CreateHouseSellingMenu(PlayerId);
 forward ShowHouseCameraForPlayer(PlayerId, House, Camera);
 forward InitHouseTimer();
 forward TimerFunctionDivideHouseMoney();
@@ -372,7 +360,7 @@ forward RefreshVehicle(VehicleId);
 forward OpenVehicle(VehicleId);
 forward CloseVehicle(VehicleId);
 forward StopVehicle(VehicleId);
-forward  VehicleRequiresPetrol(VehicleId);
+forward VehicleRequiresPetrol(VehicleId);
 forward Float:AddVehiclePetrol(VehicleId, Float:Petrol, Add);
 forward VehicleUsesPetrol(VehicleId, Float:Speed);
 forward InitVehicleDataTimer();
@@ -382,6 +370,7 @@ forward AddVehicle(Type, Float:PositionX, Float:PositionY, Float:PositionZ, Floa
 forward VehicleTypeRequiresPetrol(VehicleTypeId);
 forward CreateVehicleTypeForPlayer(PlayerId, VehicleTypeId);
 forward AddVehicleType(Name[MAX_VEHICLE_TYPE_NAME], Model, Price, Type, MaxPlaces, MaxPetrol, Profession);
+forward GetVehicleTypeByModel(Model);
 //Weapon Functions
 forward AddWeapon(Model, Type, Ammo, Float:PositionX, Float:PositionY, Float:PositionZ);
 //Weapon Type Functions

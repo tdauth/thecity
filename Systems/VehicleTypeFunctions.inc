@@ -53,3 +53,17 @@ public AddVehicleType(Name[MAX_VEHICLE_TYPE_NAME], Model, Price, Type, MaxPlaces
 	}
 	return -1;
 }
+
+public GetVehicleTypeByModel(Model)
+{
+	for (new I0 = 0; I0 < VEHICLE_TYPES; I0++)
+	{
+	    if (VEHICLE_TYPE_MODEL[I0] == Model)
+	    {
+			return I0;
+		}
+	}
+	
+	return -1;
+}
+

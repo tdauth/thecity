@@ -115,7 +115,7 @@ public AddShopTypeObject(Name[MAX_SHOP_TYPE_OBJECT_NAME], Price, Type, Id)
 {
     new ShopTypeId = (SHOP_TYPES - 1);
     new ShopTypeObjectId = SHOP_TYPE_OBJECTS[ShopTypeId];
-	if (ShopTypeObjectId < MAX_SHOP_TYPES)
+	if (ShopTypeObjectId < MAX_SHOP_TYPE_OBJECTS)
 	{
 	    SHOP_TYPE_OBJECT_NAME[ShopTypeId][ShopTypeObjectId] = Name;
 	    SHOP_TYPE_OBJECT_PRICE[ShopTypeId][ShopTypeObjectId] = Price;

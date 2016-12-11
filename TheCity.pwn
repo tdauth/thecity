@@ -215,7 +215,7 @@ public OnPlayerCommandText(playerid, cmdtext[])
 	}
 	else if (strcmp(Command, "/login", true) == 0)
 	{
-	    new LoginName[MAX_STRING];
+		new LoginName[MAX_STRING];
 	    new LoginPassword[MAX_STRING];
 	    new LoginPlayerName[MAX_STRING];
 	    ValueString = Strtok(cmdtext, Index);
@@ -279,6 +279,20 @@ public OnPlayerCommandText(playerid, cmdtext[])
 	else if (strcmp(Command, "/admin", true) == 0)
 	{
 	    CommandTurnPlayerToAdmin(playerid);
+		return true;
+	}
+	//Heli
+	else if (strcmp(Command, "/heli", true) == 0)
+	{
+	    if (IsPlayerAdmin(playerid))
+	    {
+		    new Float:x, Float:y, Float:z;
+		    // Use GetPlayerPos, passing the 3 float variables we just created
+		    GetPlayerPos(playerid, x, y, z);
+     		RefreshVehicle(AddVehicle(VEHICLE_TYPE_MAVERICK, x, y, z, 0.0000, -1, -1)); //Maverick
+     		print("Spawned heli!");
+		}
+		
 		return true;
 	}
 	//Emoticons
@@ -376,14 +390,24 @@ public OnPlayerSelectedMenuRow(playerid, row)
   		{
   		    if (row == 0)
   		    {
-  		        PlayerSellsHouse(playerid, PLAYER_MENU[playerid]);
-  		        CreateMainMenuForPlayer(playerid);
+  		        CreateHouseSellingMenu(playerid);
   		    }
   		    else
   		    {
   				ShowHouseCameraForPlayer(playerid, PLAYER_MENU[playerid], (row - 1));
 			}
 	  		return true;
+  		}
+  		case MENU_TYPE_HOUSE_SELLING:
+  		{
+			if (row == 0)
+  		    {
+	  		    PlayerSellsHouse(playerid, PLAYER_MENU[playerid]);
+			}
+			
+			CreateMainMenuForPlayer(playerid);
+			 
+			 return true;
   		}
   		//Gang Creation Menu
 		case MENU_TYPE_GANG_CREATION:
@@ -758,6 +782,7 @@ public OnPlayerRequestSpawn(playerid)
 {
 	if (PLAYER_ACCOUNT[playerid] != -1)
 	{
+	    SetCameraBehindPlayer(playerid);
 		CreateTownMenu(playerid);
 		
 		return true;

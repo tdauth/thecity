@@ -961,9 +961,9 @@ public InitShopTypes()
     //Souvenir-Geschäft
     AddShopType("Souvenir-Geschäft", 38);
     AddShopTypeObject("Blumen", 20, SHOP_TYPE_OBJECT_TYPE_WEAPON, WEAPON_TYPE_FLOWERS);
-    AddShopTypeObject("Blumen", 30, SHOP_TYPE_OBJECT_TYPE_WEAPON, WEAPON_TYPE_SPRAY_PAINT);
-    AddShopTypeObject("Blumen", 50, SHOP_TYPE_OBJECT_TYPE_WEAPON, WEAPON_TYPE_CAMERA);
-    AddShopTypeObject("Blumen", 150, SHOP_TYPE_OBJECT_TYPE_WEAPON, WEAPON_TYPE_PARACHUTE);
+    AddShopTypeObject("Sprühdose", 30, SHOP_TYPE_OBJECT_TYPE_WEAPON, WEAPON_TYPE_SPRAY_PAINT);
+    AddShopTypeObject("Kamera", 50, SHOP_TYPE_OBJECT_TYPE_WEAPON, WEAPON_TYPE_CAMERA);
+    AddShopTypeObject("Fallschirm", 150, SHOP_TYPE_OBJECT_TYPE_WEAPON, WEAPON_TYPE_PARACHUTE);
     //Tankstelle
     AddShopType("Tankstelle", 51);
     AddShopTypeObject("1 Liter", 1, SHOP_TYPE_OBJECT_TYPE_PETROL, 1);

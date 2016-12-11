@@ -89,6 +89,8 @@ public PlayerSellsHouse(PlayerId, House)
    	new HouseId = ACCOUNT_P_HOUSE[AccountId][AccountPlayerId][House];
    	GivePlayerMoney(PlayerId, (HOUSE_PRICE[HouseId] / 2)); //Der halbe Preis wird zurückerstattet.
     RemoveAccountPlayerHouse(AccountId, AccountPlayerId, HouseId);
+    HOUSE_OWNER_ACCOUNT[HouseId] = -1;
+	HOUSE_OWNER_ACCOUNT_PLAYER[HouseId] = -1;
     SendMessageToPlayer(PlayerId, MESSAGE_TYPE_ERROR, "Haus verkauft.");
 }
 
@@ -150,23 +152,29 @@ public CreateHouseSettingsMenu(PlayerId, House)
     new AccountId = PLAYER_ACCOUNT[PlayerId];
    	new AccountPlayerId = PLAYER_ACCOUNT_PLAYER[PlayerId];
 	new HouseId = ACCOUNT_P_HOUSE[AccountId][AccountPlayerId][House];
-	if (HOUSE_CAMERAS[HouseId] > 0)
+
+	PLAYER_MENU_HOUSE[PlayerId] = House;
+	CreateCustomMenuForPlayer(PlayerId, MENU_TYPE_HOUSE_SETTINGS, House, HOUSE_NAME[HouseId]);
+	AddCustomMenuItemForPlayer(PlayerId, MENU_TYPE_HOUSE_SETTINGS, "Haus verkaufen");
+	new MenuItemText[MAX_STRING];
+	for (new I0 = 0; I0 < HOUSE_CAMERAS[HouseId]; I0++)
 	{
-    	CreateCustomMenuForPlayer(PlayerId, MENU_TYPE_HOUSE_SETTINGS, House, HOUSE_NAME[HouseId]);
-    	AddCustomMenuItemForPlayer(PlayerId, MENU_TYPE_HOUSE_SETTINGS, "Haus verkaufen");
-    	new MenuItemText[MAX_STRING];
-    	for (new I0 = 0; I0 < HOUSE_CAMERAS[HouseId]; I0++)
-    	{
-        	format(MenuItemText, sizeof(MenuItemText), "Kamera %d", I0);
-			AddCustomMenuItemForPlayer(PlayerId, MENU_TYPE_HOUSE_SETTINGS, MenuItemText);
-		}
-		ShowCustomMenuForPlayer(PlayerId, MENU_TYPE_HOUSE_SETTINGS);
+    	format(MenuItemText, sizeof(MenuItemText), "Kamera %d", I0);
+		AddCustomMenuItemForPlayer(PlayerId, MENU_TYPE_HOUSE_SETTINGS, MenuItemText);
 	}
-	else
-	{
-	    CreateHousesMenu(PlayerId);
-	    SendClientMessageToPlayer(PlayerId, MESSAGE_TYPE_ERROR, "Dieses Haus besitzt keine Kameras.");
-	}
+	ShowCustomMenuForPlayer(PlayerId, MENU_TYPE_HOUSE_SETTINGS);
+
+	return true;
+}
+
+public CreateHouseSellingMenu(PlayerId)
+{
+	new HouseId = PLAYER_MENU_HOUSE[PlayerId];
+	CreateCustomMenuForPlayer(PlayerId, MENU_TYPE_HOUSE_SELLING, HouseId, HOUSE_NAME[HouseId]);
+	AddCustomMenuItemForPlayer(PlayerId, MENU_TYPE_HOUSE_SELLING, "OK");
+	AddCustomMenuItemForPlayer(PlayerId, MENU_TYPE_HOUSE_SELLING, "Abbrechen");
+	ShowCustomMenuForPlayer(PlayerId, MENU_TYPE_HOUSE_SELLING);
+
 	return true;
 }
 

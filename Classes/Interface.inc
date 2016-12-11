@@ -123,6 +123,7 @@ new Float:MENU_TYPE_POSITION[MAX_MENU_TYPES][2] =
 	{350.0000, 150.0000}, //Town Selection
 	{350.0000, 150.0000}, //Houses
 	{350.0000, 150.0000}, //House Settings
+	{350.0000, 150.0000}, //House Selling
 	{350.0000, 150.0000}, //Gang Creation
 	{350.0000, 150.0000}, //Gang
 	{350.0000, 150.0000}, //Gang Hall Selection
@@ -136,6 +137,7 @@ new Float:MENU_TYPE_POSITION[MAX_MENU_TYPES][2] =
 };
 new Float:MENU_TYPE_SIZE[MAX_MENU_TYPES] =
 {
+	220.0000,
 	220.0000,
 	220.0000,
 	220.0000,

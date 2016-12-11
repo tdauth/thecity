@@ -212,7 +212,7 @@ public AccountRegister(PlayerId, Name[MAX_STRING], Password[MAX_STRING], Email[M
 									PLAYER_ACCOUNT_PLAYER[PlayerId] = AccountPlayerId;
 									ShowSkinInfoForPlayer(PlayerId, 0);
 					    			SendClientMessageToPlayer(PlayerId, MESSAGE_TYPE_ACCEPTANCE, "Benutzerkonto wurde erfolgreich erstellt.");
-					    			SendClientMessageToPlayer(PlayerId, MESSAGE_TYPE_ACCEPTANCE, "Sie wurden automtaisch angemeldet.");
+					    			SendClientMessageToPlayer(PlayerId, MESSAGE_TYPE_ACCEPTANCE, "Sie wurden automatisch angemeldet.");
 					    			SendClientMessageToPlayer(PlayerId, MESSAGE_TYPE_INFO, "Wählen Sie nun Ihr Aussehen und Ihre Startstadt.");
 									return true;
 								}

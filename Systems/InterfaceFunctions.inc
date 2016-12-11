@@ -10,6 +10,12 @@
 //-- Functions --
 public InitTimeTimer()
 {
+	// Start time
+    for (new I0 = 0; I0 < MAX_PLAYERS; I0++)
+	{
+		SetPlayerTime(I0, 12, 00);
+	}
+
 	TIMER_TIME = SetTimer("TimerFunctionSetTime", ConvertSeconds(1), true);
 	return true;
 }

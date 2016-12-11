@@ -26,6 +26,8 @@ public ShowSkinInfoForPlayer(PlayerId, SkinId)
     new InfoMessage[MAX_STRING];
  	format(InfoMessage, sizeof(InfoMessage), "~y~Aussehen %d~n~~w~%s", (SkinId + 1), SKIN_NAME[SkinId]);
   	SendMessageToPlayer(PlayerId, MESSAGE_TYPE_INFO, InfoMessage);
+  	SetPlayerCameraPos(PlayerId, -783.8020, 495.5815, 1376.1953);
+  	SetPlayerCameraLookAt(PlayerId, -783.8020, 495.5815, 1376.1953);
   	return true;
 }
 
