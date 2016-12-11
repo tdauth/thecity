@@ -210,7 +210,7 @@ public AccountRegister(PlayerId, Name[MAX_STRING], Password[MAX_STRING], Email[M
 				    		 		new AccountPlayerId = AddAccountPlayer(AccountId, PlayerId, AccountPlayerName);
 									PLAYER_ACCOUNT[PlayerId] = AccountId;
 									PLAYER_ACCOUNT_PLAYER[PlayerId] = AccountPlayerId;
-									CreateTownMenu(PlayerId);
+									ShowSkinInfoForPlayer(PlayerId, 0);
 					    			SendClientMessageToPlayer(PlayerId, MESSAGE_TYPE_ACCEPTANCE, "Benutzerkonto wurde erfolgreich erstellt.");
 					    			SendClientMessageToPlayer(PlayerId, MESSAGE_TYPE_ACCEPTANCE, "Sie wurden automtaisch angemeldet.");
 					    			SendClientMessageToPlayer(PlayerId, MESSAGE_TYPE_INFO, "Wählen Sie nun Ihr Aussehen und Ihre Startstadt.");

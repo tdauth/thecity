@@ -14,6 +14,17 @@ public InitTimeTimer()
 	return true;
 }
 
+public InitPlayerMessages()
+{
+	for (new I0 = 0; I0 < MAX_PLAYERS; I0++)
+	{
+	    for (new I1 = 0; I1 < MAX_MESSAGE_TYPES; I1++)
+		{
+			MESSAGE_DESTROYED[I0][I1] = false;
+		}
+	}
+}
+
 public TimerFunctionSetTime()
 {
 	new Hour, Minute, NewHour, NewMinute;
@@ -50,7 +61,15 @@ public SendMessageToPlayer(PlayerId, Type, Message[])
 	strcat(NewMessage, Message, sizeof(NewMessage));
     NewMessage = FixString(NewMessage);
 	//Text Message
- 	TextDrawDestroy(MESSAGE[PlayerId][Type]);
+	if (!MESSAGE_DESTROYED[PlayerId][Type])
+	{
+	 	TextDrawDestroy(MESSAGE[PlayerId][Type]);
+	}
+	else
+	{
+	    MESSAGE_DESTROYED[PlayerId][Type] = false;
+	}
+
     MESSAGE[PlayerId][Type] = TextDrawCreate(MESSAGE_TYPE_POSITION[Type][X], MESSAGE_TYPE_POSITION[Type][Y], NewMessage);
     TextDrawLetterSize(MESSAGE[PlayerId][Type], MESSAGE_TYPE_SIZE[Type][X], MESSAGE_TYPE_SIZE[Type][Y]);
 	TextDrawColor(MESSAGE[PlayerId][Type], MESSAGE_TYPE_COLOUR[Type]);
@@ -75,12 +94,14 @@ public SendTimedMessageToPlayer(PlayerId, Time, Type, Message[])
 public DestroySendedMessageForPlayer(PlayerId, Type)
 {
     TextDrawDestroy(MESSAGE[PlayerId][Type]);
+    MESSAGE_DESTROYED[PlayerId][Type] = true;
+
     return true;
 }
 
 public SendClientMessageToPlayer(PlayerId, Type, Message[])
 {
-	SendClientMessage(PlayerId, MESSAGE_TYPE_COLOUR[Type], Message);
+	SendClientMessage(PlayerId, MESSAGE_TYPE_COLOUR[Type], FixString(Message));
 	return true;
 }
 
@@ -99,7 +120,7 @@ public CreateCustomMenuForPlayer(PlayerId, Type, Menu, Title[])
     DestroyMenu(MENU[PlayerId][Type]);
     PLAYER_MENU_TYPE[PlayerId] = Type;
     PLAYER_MENU[PlayerId] = Menu;
-    MENU[PlayerId][Type] = CreateMenu(Title, 1, MENU_TYPE_POSITION[Type][X], MENU_TYPE_POSITION[Type][Y], MENU_TYPE_SIZE[Type]);
+    MENU[PlayerId][Type] = CreateMenu(FixString(Title), 1, MENU_TYPE_POSITION[Type][X], MENU_TYPE_POSITION[Type][Y], MENU_TYPE_SIZE[Type]);
     TogglePlayerControllable(PlayerId, false);
     return true;
 }
@@ -119,7 +140,7 @@ public DestroyAllCustomMenuesForPlayer(PlayerId)
 
 public SetCustomMenuHeader(PlayerId, Type, Header[])
 {
-	SetMenuColumnHeader(MENU[PlayerId][Type], 0, Header);
+	SetMenuColumnHeader(MENU[PlayerId][Type], 0, FixString(Header));
 	return true;
 }
 
@@ -131,7 +152,7 @@ public ShowCustomMenuForPlayer(PlayerId, Type)
 
 public AddCustomMenuItemForPlayer(PlayerId, Type, Text[])
 {
-	AddMenuItem(MENU[PlayerId][Type], 0, Text);
+	AddMenuItem(MENU[PlayerId][Type], 0, FixString(Text));
 	return true;
 }
 

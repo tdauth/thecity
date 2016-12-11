@@ -148,8 +148,8 @@ public TimerFunctionShowVehicleData()
 					}
 					SendMessageToPlayer(I0, MESSAGE_TYPE_SPEED, InfoMessage);
 	    		}
-	    		//Player Is No Driver
-	    		else if (GetPlayerState(I0) == PLAYER_STATE_EXIT_VEHICLE)
+	    		//Player Is No Driver and message has not been destroyed yet
+	    		else if (!MESSAGE_DESTROYED[I0][MESSAGE_TYPE_SPEED])
 	    		{
 	    		    DestroySendedMessageForPlayer(I0, MESSAGE_TYPE_SPEED);
 	    		}

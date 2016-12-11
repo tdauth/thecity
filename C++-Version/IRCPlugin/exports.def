@@ -1,7 +1,0 @@
-LIBRARY	"HelloWorld"
-EXPORTS
-	Supports
-	Load
-	Unload
-	AmxLoad
-	AmxUnload

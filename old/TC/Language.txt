@@ -1,3 +1,0 @@
-L_MAIN_WELCOME = Willkommen im Spielmodus 'The City'. Geben Sie '/register [Benutzername] [Passwort] [Email-Addresse] [Landeskürzel]' im Chat ein, um sich zu registrieren. Geben Sie '/login [Benutzername] [Passwort]' im Chat ein, um sich mit Ihrem Benutzerprofil einzuloggen. Herrsteller: Barade;
-L_MAIN_NOT_LOGGED_IN = Sie wurden vom Server gekickt, da Sie sich nicht angemeldet haben.;
-L_MAIN

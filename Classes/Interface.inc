@@ -9,7 +9,8 @@
 
 //-- Variables --
 new TIMER_TIME;
-new Text:MESSAGE[MAX_PLAYERS][MAX_MESSAGE_TYPES];
+new Text:MESSAGE[MAX_PLAYERS][MAX_MESSAGE_TYPES]; // TextDraw IDs
+new MESSAGE_DESTROYED[MAX_PLAYERS][MAX_MESSAGE_TYPES]; // flag which indicates if the text draw id is destroyed
 new Menu:MENU[MAX_PLAYERS][MAX_MENU_TYPES];
 
 //-- Properties --

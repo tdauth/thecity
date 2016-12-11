@@ -235,7 +235,7 @@ forward StartGangBattle(GangId, OtherGangId);
 forward EndGangBattle(GangId, WinerGangId);
 forward AddGangHall(Name[MAX_GANG_HALL_NAME], Price, Float:PositionX, Float:PositionY, Float:PositionZ, Float:PositionFacing, Interior, Float:TeamPosition1X, Float:TeamPosition1Y, Float:TeamPosition1Z, Float:TeamPosition1Facing, Float:TeamPosition2X, Float:TeamPosition2Y, Float:TeamPosition2Z, Float:TeamPosition2Facing, Float:ExitPositionX, Float:ExitPositionY, Float:ExitPositionZ, Float:ExitPositionFacing);
 //General Functions
-forward FixString(String[]);
+forward FixString(const String[]);
 forward StringIsNumeric(const String[]);
 forward Strtok(const String[], &Index);
 forward ConvertSeconds(Seconds);
@@ -257,6 +257,7 @@ forward AddHouseVehicle(VehicleId);
 forward AddHouseCamera(Float:PositionX, Float:PositionY, Float:PositionZ, Float:TargetX, Float:TargetY, Float:TargetZ, Interior);
 //Interface Functions
 forward InitTimeTimer();
+forward InitPlayerMessages();
 forward TimerFunctionSetTime();
 forward SendMessageToPlayer(PlayerId, Type, Message[]);
 forward SendTimedMessageToPlayer(PlayerId, Time, Type, Message[]);
@@ -394,33 +395,82 @@ forward AddWeaponTypeType(Name[MAX_WEAPON_TYPE_TYPE_NAME]);
 forward AddWeaponTypeTypeReason(Id);
 
 //-- Functions --
-FixString(String[]) //String soll eigentlich ein direkter Link auf die Variable sein  - &String, funktioniert aber nicht im Compiler
+FixString(const String[]) //String soll eigentlich ein direkter Link auf die Variable sein  - &String, funktioniert aber nicht im Compiler
 {
-	new FixedString[MAX_STRING];
-	strcat(FixedString, String, sizeof(FixedString));
 	new I0;
+	new FixedString[MAX_STRING];
+	new TargetIndex;
+	TargetIndex = 0;
+	// Copy for safety
+	strcat(FixedString, String, sizeof(FixedString));
 	//General Fix
-	for (I0 = 0; I0 < strlen(String); I0++)
+	for (I0 = 0; I0 < strlen(String) && TargetIndex < MAX_STRING; I0++, TargetIndex++)
 	{
-	    if (String[I0] < 0)
-	    {
-	        FixedString[I0] += 256;
-	    }
-	}
-	//German Fix
-	for (I0 = 0; I0 < strlen(FixedString); I0++)
-	{
+		//German Fix
 	    if (String[I0] == 'ä')
 	    {
+	        FixedString[TargetIndex] = 'a';
+	        TargetIndex++;
+	        
+	        if (TargetIndex == MAX_STRING)
+	        {
+	            break;
+     		}
+	        
+     		FixedString[TargetIndex] = 'e';
 	    }
 	    else if (String[I0] == 'ö')
 	    {
+	        FixedString[TargetIndex] = 'o';
+	        TargetIndex++;
+
+	        if (TargetIndex == MAX_STRING)
+	        {
+	            break;
+     		}
+	        
+	        FixedString[TargetIndex] = 'e';
 	    }
 	    else if (String[I0] == 'ü')
 	    {
+	        FixedString[TargetIndex] = 'u';
+	        TargetIndex++;
+
+	        if (TargetIndex == MAX_STRING)
+	        {
+	            break;
+     		}
+	        
+	        FixedString[TargetIndex] = 'e';
 	    }
-	    
+	    else if (String[I0] == 'ß')
+	    {
+	        FixedString[TargetIndex] = 's';
+	        TargetIndex++;
+
+	        if (TargetIndex == MAX_STRING)
+	        {
+	            break;
+     		}
+     		
+	        FixedString[TargetIndex] = 's';
+	    }
+		else if (String[I0] == 0)
+		{
+			FixedString[TargetIndex] = 0;
+			
+			break;
+		}
+		else if (String[I0] < 0)
+	    {
+	        FixedString[TargetIndex] += 256;
+	    }
+	    else
+	    {
+	        FixedString[TargetIndex] = String[I0];
+	    }
 	}
+
 	return FixedString;
 }
 
