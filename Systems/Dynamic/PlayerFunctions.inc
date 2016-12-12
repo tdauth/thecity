@@ -9,6 +9,25 @@
 #pragma library PlayerFunctions
 
 //-- Functions --
+public InitMoneyTimer()
+{
+	TIMER_MONEY = SetTimer("TimerFunctionGiveMoney", ConvertSeconds(10), true);
+	return true;
+}
+
+public TimerFunctionGiveMoney()
+{
+	for (new I0 = 0; I0 < MAX_PLAYERS; I0++)
+	{
+	    if (IsPlayerConnected(I0) && PLAYER_ACCOUNT[I0] != -1)
+	    {
+	        GivePlayerMoney(I0, 2000);
+	        SendMessageToPlayer(I0, MESSAGE_TYPE_INFO, "Mutter schickt dir 2000$.");
+		}
+	}
+	return true;
+}
+
 public InitPlayerMiniMap(PlayerId)
 {
     //ShowAreasForPlayer(PlayerId);

@@ -154,7 +154,7 @@
 #define MAX_SHOPS                                   100
 #define MAX_SHOP_OWNER                              22
 //-- Shop Type --
-#define MAX_SHOP_TYPES                              2
+#define MAX_SHOP_TYPES                              3
 #define MAX_SHOP_TYPE_NAME                          28
 #define MAX_SHOP_TYPE_OBJECTS                       10
 #define MAX_SHOP_TYPE_OBJECT_NAME                   22

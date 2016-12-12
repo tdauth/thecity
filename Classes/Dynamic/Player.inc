@@ -10,6 +10,7 @@
 
 //-- Variables --
 new PLAYERS = 0;
+new TIMER_MONEY;
 
 //-- Properties --
 new PLAYER[MAX_PLAYERS];

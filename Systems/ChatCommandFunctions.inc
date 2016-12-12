@@ -315,13 +315,21 @@ public CommandTurnPlayerToAdmin(PlayerId)
 public SavePlayerChatLogData(PlayerId, Data[])
 {
     new FileName[MAX_STRING];
-    new Label[MAX_STRING];
+    new Line[MAX_STRING];
     new Year, Month, Day;
     new Hour, Minute, Second;
     getdate(Year, Month, Day);
     gettime(Hour, Minute, Second);
-	format(FileName, sizeof(FileName), "ChatLog[%d.%d.%d].txt", Day, Month, Year);
-	format(Label, sizeof(Label), "%s[%d:%d:%d]", PLAYER_NAME[PlayerId], Hour, Minute, Second);
-    SaveDatabaseFileValueString(FileName, Label, Data);
+	format(FileName, MAX_STRING, "ChatLog[%d.%d.%d].txt", Day, Month, Year);
+	format(Line, MAX_STRING, "%s[%d:%d:%d]: %s\n", PLAYER_NAME[PlayerId], Hour, Minute, Second, Data);
+	new File:LogFile;
+	LogFile = fopen(FileName, io_read | io_append);
+	
+	if (LogFile)
+	{
+	    fwrite(LogFile, Line);
+	    fclose(LogFile);
+	}
+
     return true;
 }

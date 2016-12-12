@@ -10,9 +10,12 @@
 //-- Functions --
 public InitTimeTimer()
 {
+	SetWorldTime(12);
+
 	// Start time
     for (new I0 = 0; I0 < MAX_PLAYERS; I0++)
 	{
+	    TogglePlayerClock(I0, true);
 		SetPlayerTime(I0, 12, 00);
 	}
 

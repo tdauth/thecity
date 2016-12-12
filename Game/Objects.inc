@@ -970,6 +970,13 @@ public InitShopTypes()
     AddShopTypeObject("5 Liter", 5, SHOP_TYPE_OBJECT_TYPE_PETROL, 5);
     AddShopTypeObject("10 Liter", 10, SHOP_TYPE_OBJECT_TYPE_PETROL, 10);
     AddShopTypeObject("50 Liter", 50, SHOP_TYPE_OBJECT_TYPE_PETROL, 50);
+    //Spezialwaffengeschäft
+    AddShopType("Schwerer Waffenladen", 6);
+    AddShopTypeObject("Raketenwerfer", 10000, SHOP_TYPE_OBJECT_TYPE_WEAPON, WEAPON_TYPE_STINGER_ROCKET_LAUNCHER);
+    AddShopTypeObject("Flammenwerfer", 5000, SHOP_TYPE_OBJECT_TYPE_WEAPON, WEAPON_TYPE_FLAMETHROWER);
+	AddShopTypeObject("Minigun", 15000, SHOP_TYPE_OBJECT_TYPE_WEAPON, WEAPON_TYPE_MINIGUN);
+	AddShopTypeObject("C4", 5000, SHOP_TYPE_OBJECT_TYPE_WEAPON, WEAPON_TYPE_SATCHEL_CARGES);
+
     //-- San Fierro --
     //-- Las Venturas --
     //-- Red County --
@@ -986,6 +993,8 @@ public InitShops()
     //-- Los Santos --
     //International
     AddShop("Oli", 0, 1685.6531, -2334.1960, 13.5469, 3.0000, 1685.5219, -2329.3389, 13.5469, 1685.6531, -2334.1960, 13.5469);
+    
+    AddShop("Adolfs Waffenladen", 2, 1675.6531, -2334.1960, 13.5469, 3.0000, 1685.5219, -2329.3389, 13.5469, 1685.6531, -2334.1960, 13.5469);
     //Ocean Docks
 	//Santa Maria Beach
 	//Verona Beach

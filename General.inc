@@ -44,7 +44,6 @@
 #include "Classes\Area"
 #include "Classes\ChatCommand"
 #include "Classes\Checkpoint"
-#include "Classes\Database"
 #include "Classes\DeathMatch"
 #include "Classes\Emoticon"
 #include "Classes\Dynamic\Gang"
@@ -156,22 +155,6 @@ forward SavePlayerChatLogData(PlayerId, Data[]);
 forward SetPlayerActiveCheckpoint(PlayerId, Checkpoint, Type);
 forward InitCheckpointTimer();
 forward TimerFunctionGetCheckpoint();
-//Database Functions
-forward DatabaseFileExists(FileName[]);
-forward RemoveDatabaseFile(FileName[]);
-forward CopyDatabaseFileHandle(File:UsedFile, File:NewFile, Close = true);
-forward File:CopyDatabaseFile(FileName[], NewFileName[], Close = true);
-forward File:RenameDatabaseFile(FileName[], NewFileName[]);
-forward SaveDatabaseFHValueString(File:UsedFile, Label[], Value[], Close = true);
-forward SaveDatabaseFileHandleInteger(File:UsedFile, Label[], Value, Close = true);
-forward SaveDatabaseFileHandleFloat(File:UsedFile, Label[], Float:Value, Close = true);
-forward File:SaveDatabaseFileValueString(FileName[], Label[], Value[], Close = true);
-forward File:SaveDatabaseFileInteger(FileName[], Label[], Value, Close = true);
-forward File:SaveDatabaseFileFloat(FileName[], Label[], Float:Value, Close = true);
-forward GetDatabaseFHValueString(File:UsedFile, Label[], Close = true);
-forward GetDatabaseFileValueString(FileName[], Label[], Close = true);
-forward GetDatabaseFileInteger(FileName[], Label[], Close = true);
-forward Float:GetDatabaseFileFloat(FileName[], Label[], Close = true);
 //Death Match Functions
 forward CreateDMMarkersForPlayer(PlayerId);
 forward SendDeathMatchMessage(DeathMatchId, Type, Message[]);
@@ -294,6 +277,8 @@ forward InitGangHalls();
 forward InitDeathMatches();
 forward InitEmoticons();
 //Player Functions
+forward InitMoneyTimer();
+forward TimerFunctionGiveMoney();
 forward InitPlayerMiniMap(PlayerId);
 forward PlayerExists(Name[MAX_PLAYER_NAME]);
 forward Float:GetPlayersDistanceFromXYZ(PlayerId, Float:PointX, Float:PointY, Float:PointZ);
@@ -508,7 +493,6 @@ GetLanguageString(Label[])
 #include "Systems\AreaFunctions"
 #include "Systems\ChatCommandFunctions"
 #include "Systems\CheckpointFunctions"
-#include "Systems\DatabaseFunctions"
 #include "Systems\DeathMatchFunctions"
 #include "Systems\EmoticonFunctions"
 #include "Systems\Dynamic\GangFunctions"

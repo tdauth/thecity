@@ -54,6 +54,7 @@ public OnGameModeInit()
 	InitAreaTimer();
 	InitVehicleDataTimer();
 	InitHouseTimer();
+	InitMoneyTimer();
 	//Objects
 	InitAreas();
 	printf("%d Gebiete", AREAS);
@@ -89,6 +90,47 @@ public OnGameModeInit()
 	InitEmoticons();
 	printf("%d Emoticons", EMOTICONS);
 	print("Objekte wurden erzeugt...");
+	
+	new DB:db;
+	db = db_open("thecity.db");
+	
+	//Load existing database
+	if (db != DB:0)
+	{
+	    new DBResult:db_result;
+		db_result = db_query(db, "SELECT * FROM `Accounts`;");
+		
+		if (db_result)
+		{
+			new AccountsCounter;
+		    AccountsCounter = db_num_rows(db_result);
+		    new I0;
+
+		    for (I0 = 0; I0 < AccountsCounter; I0++)
+		    {
+		        new AccountName[MAX_STRING];
+				db_get_field(db_result, 0, AccountName, MAX_STRING);
+				new AccountPassword[MAX_STRING];
+				db_get_field(db_result, 1, AccountPassword, MAX_STRING);
+				
+				ACCOUNT_PLAYER_ID[I0] = -1;
+				strcat(ACCOUNT_NAME[I0], AccountName, MAX_ACCOUNT_NAME);
+				strcat(ACCOUNT_PASSWORD[I0], AccountPassword, MAX_ACCOUNT_PASSWORD);
+				ACCOUNT[I0] = I0;
+				ACCOUNTS++;
+				
+				if (!db_next_row(db_result))
+				{
+				    break;
+				}
+	    	}
+		}
+		
+		db_free_result(db_result);
+		
+		db_close(db);
+	}
+
 	return true;
 }
 
@@ -100,6 +142,34 @@ public OnGameModeExit()
 	KillTimer(TIMER_CHECKPOINT);
 	KillTimer(TIMER_VEHICLE_DATA);
 	KillTimer(TIMER_HOUSE);
+	
+	new DB:db;
+	db = db_open("thecity.db");
+
+	//Store all permanent data to database.
+	if (db != DB:0)
+	{
+	    new DBResult:db_result;
+
+		db_result = db_query(db, "DROP TABLE `Accounts`");
+		db_free_result(db_result);
+	    
+		db_result = db_query(db, "CREATE TABLE IF NOT EXISTS `Accounts`(`ID` INTEGER PRIMARY KEY AUTOINCREMENT,`Name` VARCHAR(255) NOT NULL)");
+		db_free_result(db_result);
+
+		new I0;
+		
+		for (I0 = 0; I0 < ACCOUNTS; I0++)
+	    {
+	        new Query[MAX_STRING];
+	        format(Query, MAX_STRING, "INSERT INTO `Accounts` (`Name`, `Password`) VALUES ('%s', '%s')", ACCOUNT_NAME[I0], ACCOUNT_PASSWORD[I0]);
+		    db_result = db_query(db, Query);
+		    db_free_result(db_result);
+    	}
+		
+	    db_close(db);
+	}
+	
 	return true;
 }
 
