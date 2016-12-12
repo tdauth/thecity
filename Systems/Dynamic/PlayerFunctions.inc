@@ -22,7 +22,7 @@ public TimerFunctionGiveMoney()
 	    if (IsPlayerConnected(I0) && PLAYER_ACCOUNT[I0] != -1)
 	    {
 	        GivePlayerMoney(I0, 2000);
-	        SendMessageToPlayer(I0, MESSAGE_TYPE_INFO, "Mutter schickt dir 2000$.");
+	        SendClientMessageToPlayer(I0, MESSAGE_TYPE_INFO, "Mutter schickt dir 2000$.");
 		}
 	}
 	return true;
