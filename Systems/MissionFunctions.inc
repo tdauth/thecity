@@ -56,6 +56,16 @@ public PlayerStartsMission(PlayerId)
     			GameTextForPlayer(PlayerId, InfoMessage, ConvertSeconds(4), 3);
     			return true;
 			}
+			//Vehicle has no mission
+			else
+			{
+	 			SendMessageToPlayer(PlayerId, MESSAGE_TYPE_ERROR, "Es gibt keine Mission in diesem Fahrzeug.");
+			}
+		}
+		//Player is not in vehicle
+		else
+		{
+	 		SendMessageToPlayer(PlayerId, MESSAGE_TYPE_ERROR, "Sie sind nicht der Fahrer eines Fahrzeugs.");
 		}
 	}
 	//Player Has A Mission

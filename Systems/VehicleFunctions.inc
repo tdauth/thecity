@@ -157,7 +157,17 @@ public TimerFunctionShowVehicleData()
 		    		    DestroySendedMessageForPlayer(I0, MESSAGE_TYPE_SPEED);
 		    		}
 				}
+				//Player has no valid vehicle type and message has not been destroyed yet
+	    		else if (!MESSAGE_DESTROYED[I0][MESSAGE_TYPE_SPEED])
+	    		{
+	    		    DestroySendedMessageForPlayer(I0, MESSAGE_TYPE_SPEED);
+	    		}
 			}
+			//Player Is No Driver and message has not been destroyed yet
+ 			else if (!MESSAGE_DESTROYED[I0][MESSAGE_TYPE_SPEED])
+  			{
+	    		DestroySendedMessageForPlayer(I0, MESSAGE_TYPE_SPEED);
+   			}
 			PLAYER_LAST_POSITION[I0][X] = PositionX;
 			PLAYER_LAST_POSITION[I0][Y] = PositionY;
 			PLAYER_LAST_POSITION[I0][Z] = PositionZ;

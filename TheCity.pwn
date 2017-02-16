@@ -365,6 +365,22 @@ public OnPlayerCommandText(playerid, cmdtext[])
 		
 		return true;
 	}
+	//Help
+	else if (strcmp(Command, "/help", true) == 0)
+	{
+	    SendClientMessage(playerid, -1, FixString("Folgende Befehle können verwendet werden:"));
+	   	SendClientMessage(playerid, -1, FixString("/register"));
+	   	SendClientMessage(playerid, -1, FixString("/login"));
+	   	SendClientMessage(playerid, -1, FixString("/hunt"));
+	   	SendClientMessage(playerid, -1, FixString("/give"));
+		SendClientMessage(playerid, -1, FixString("/gangname"));
+		SendClientMessage(playerid, -1, FixString("/ganginvite"));
+		SendClientMessage(playerid, -1, FixString("/exit"));
+		SendClientMessage(playerid, -1, FixString("/admin"));
+		SendClientMessage(playerid, -1, FixString("/heli"));
+
+		return true;
+	}
 	//Emoticons
 	else
 	{
@@ -477,7 +493,7 @@ public OnPlayerSelectedMenuRow(playerid, row)
 			
 			CreateMainMenuForPlayer(playerid);
 			 
-			 return true;
+		 	return true;
   		}
   		//Gang Creation Menu
 		case MENU_TYPE_GANG_CREATION:

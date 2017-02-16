@@ -302,6 +302,17 @@ public CommandTurnPlayerToAdmin(PlayerId)
             GivePlayerWeapon(PlayerId, WEAPON_TYPE_MODEL[WEAPON_TYPE_MINIGUN], 9999999);
             GivePlayerWeapon(PlayerId, WEAPON_TYPE_MODEL[WEAPON_TYPE_SATCHEL_CARGES], 9999999);
             SetPlayerSpecialAction(PlayerId, SPECIAL_ACTION_USEJETPACK);
+            SetPlayerSkillLevel(PlayerId, WEAPONSKILL_PISTOL, 999);
+            SetPlayerSkillLevel(PlayerId, WEAPONSKILL_PISTOL_SILENCED, 999);
+            SetPlayerSkillLevel(PlayerId, WEAPONSKILL_DESERT_EAGLE, 999);
+            SetPlayerSkillLevel(PlayerId, WEAPONSKILL_SHOTGUN, 999);
+            SetPlayerSkillLevel(PlayerId, WEAPONSKILL_SAWNOFF_SHOTGUN, 999);
+            SetPlayerSkillLevel(PlayerId, WEAPONSKILL_SPAS12_SHOTGUN, 999);
+            SetPlayerSkillLevel(PlayerId, WEAPONSKILL_MICRO_UZI, 999);
+            SetPlayerSkillLevel(PlayerId, WEAPONSKILL_MP5, 999);
+            SetPlayerSkillLevel(PlayerId, WEAPONSKILL_AK47, 999);
+            SetPlayerSkillLevel(PlayerId, WEAPONSKILL_M4, 999);
+            SetPlayerSkillLevel(PlayerId, WEAPONSKILL_SNIPERRIFLE, 999);
 		}
 		//Player Is Not Admin
 		else

@@ -429,6 +429,18 @@ FixString(const String[]) //String soll eigentlich ein direkter Link auf die Var
      		
 	        FixedString[TargetIndex] = 's';
 	    }
+     	else if (String[I0] == '@')
+	    {
+	        FixedString[TargetIndex] = 'a';
+	        TargetIndex++;
+
+	        if (TargetIndex == MAX_STRING)
+	        {
+	            break;
+     		}
+
+	        FixedString[TargetIndex] = 't';
+	    }
 		else if (String[I0] == 0)
 		{
 			FixedString[TargetIndex] = 0;

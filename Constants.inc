@@ -9,11 +9,11 @@
 
 //-- Account --
 #define MAX_ACCOUNTS                                100
-#define MAX_ACCOUNT_NAME                            8
-#define MAX_ACCOUNT_PASSWORD                        8
-#define MAX_ACCOUNT_EMAIL                           22
+#define MAX_ACCOUNT_NAME                            32
+#define MAX_ACCOUNT_PASSWORD                        32
+#define MAX_ACCOUNT_EMAIL                           32
 #define MAX_ACCOUNT_COUNTRY                         2
-#define MAX_ACCOUNT_DESCRIPTION                     22
+#define MAX_ACCOUNT_DESCRIPTION                     32
 #define MAX_ACCOUNT_PLAYERS                         4
 #define MAX_ACCOUNT_PLAYER_NAME                     22
 #define MAX_ACCOUNT_PLAYER_HOUSES                   4

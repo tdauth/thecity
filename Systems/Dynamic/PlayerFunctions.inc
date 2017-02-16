@@ -11,7 +11,7 @@
 //-- Functions --
 public InitMoneyTimer()
 {
-	TIMER_MONEY = SetTimer("TimerFunctionGiveMoney", ConvertSeconds(10), true);
+	TIMER_MONEY = SetTimer("TimerFunctionGiveMoney", ConvertSeconds(25), true);
 	return true;
 }
 
